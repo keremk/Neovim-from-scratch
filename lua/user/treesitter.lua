@@ -1,11 +1,10 @@
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
-  return
+	return
 end
 
 configs.setup {
-  ensure_installed = { "lua", "rust", "typescript" }, -- one of "all", or a list of languages (https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  ensure_installed = { "all" }, -- one of "all", or a list of languages (https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
     enable = true,
@@ -15,6 +14,9 @@ configs.setup {
     disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
+	autopairs = {
+		enable = true,
+	},
   indent = { enable = true, disable = { "yaml" } },
   context_commentstring = {
     enable = true,
