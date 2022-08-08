@@ -58,10 +58,16 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
-
+  use "tpope/vim-surround"
+  use "tpope/vim-repeat"
+  use "tpope/vim-commentary"
+  use "Pocco81/AutoSave.nvim"
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "EdenEast/nightfox.nvim"
+  use "folke/tokyonight.nvim"
+  use "overcache/NeoSolarized"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -70,7 +76,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-
+  use "hrsh7th/cmp-vsnip"
+  use "hrsh7th/vim-vsnip"
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -80,7 +87,14 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-
+  use "simrat39/rust-tools.nvim"
+  use {
+    "scalameta/nvim-metals",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
+    }
+  }
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
@@ -99,4 +113,5 @@ return packer.startup(function(use)
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
+  require('rust-tools').setup({})
 end)
